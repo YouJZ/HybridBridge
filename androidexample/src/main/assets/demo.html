@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>JsBridge Dome</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <meta name="format-detection" content="telephone=no" />
+    <style type="text/css">
+    .menu input {
+        background: #f5f5f5;
+        border-radius: 2px;
+    }
+    #backData{
+    	margin:30px 10px;
+    }
+    img{
+    	width: 200px;
+    	height: 200px;
+    }
+
+    </style>
+</head>
+
+<body>
+    <div class="menu">
+        <input type="button" name="takephoto" value="拍照">
+        <input type="button" name="selectphoto" value="图库选择">
+        <input type="button" name="call" value="拨打电话">
+        <input type="button" name="deviceinfo" value="获取设备信息">
+    </div>
+    <div id="backData"></div>
+    <script type="text/javascript" src="./zepto.js"></script>
+    <script type="text/javascript" src="./native.js"></script>
+    <script type="text/javascript">
+    $("input").on("click", function(event) {
+    		if($("#backData").children().length){
+    			$("#backData").children().remove();
+    		}
+        
+        if (this.name === "takephoto") {
+            function callback(backdata) {
+                $("#backData").text("");
+            	$("#backData").append('<img src='+backdata.smImagePath+'>')
+            }
+            $.native({
+                action: "takephoto",
+                callback: callback,
+                data: {
+                    width:0,
+                    height: 0,
+                    iscompress: true
+                }
+            });
+            console.info("takephoto");
+        } else if (this.name === "selectphoto") {
+            function callback(backdata) {
+            	$("#backData").text("");
+            	$("#backData").append('<img src='+backdata.imagePath+'>')
+            }
+            $.native({
+                action: "selectphoto",
+                callback: callback,
+                data: {
+                    width: 0,
+                    height: 0,
+                    iscompress: true
+                }
+            });
+            console.info("selectphoto");
+        } else if (this.name === "call") {
+            $.native({
+                action: "call",
+                data: {
+                    number: 123456789
+                }
+            });
+            console.info("call");
+        } else if (this.name === "deviceinfo") {
+            function callback(backdata) {
+                $("#backData").text(backdata.deviceName);
+                console.info(backdata);
+            }
+            $.native({
+                action: "deviceinfo",
+                callback: callback
+            });
+            console.info("deviceinfo");
+        }
+    });
+    </script>
+</body>
+
+</html>
