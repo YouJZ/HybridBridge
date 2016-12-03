@@ -22,11 +22,11 @@ A basic framework for Android hybrid development, bridge between JavaScript and 
 ##use in js
 ### step.1
     window.nativeCallback = function(data) {...}
-### step.2    
+### step.2
     var Senddata={
-    		action:params.action,
+    		action:"deviceinfo",
     		callback:"nativeCallback",
-    		data:params.data,
+    		data:data,
     	}
 ### step.3
     window.native.sendMessage(sendDataStr);
