@@ -2,6 +2,10 @@
 A basic framework for Android hybrid development, bridge between JavaScript and java.
 
 ##use in android
+
+###Adding to project
+
+    compile 'com.zyj:hybridbridge:0.1.0'
 ### step.1
     webView.loadUrl("you url");
     JsBridge.getInstance().init(this, webView);
