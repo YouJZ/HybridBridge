@@ -1,4 +1,4 @@
-package com.zyj.jsbridge;
+package com.zyj.hybridbridge;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -18,23 +18,28 @@ import android.webkit.WebView;
 public class JsBridge {
 
     private HandleJsMessage mHandleJsMessage;
-    private JsBridge(){}
 
-    public static JsBridge getInstance(){
+    private JsBridge() {
+    }
+
+    public static JsBridge getInstance() {
         return JsBridgeHolder.getJsBridgeInstance;
 
     }
-    private static final class JsBridgeHolder{
+
+    private static final class JsBridgeHolder {
         private final static JsBridge getJsBridgeInstance = new JsBridge();
     }
-    public JsBridge addJsAction( @Nullable String action,@Nullable Class<? extends  JsAction> jsActionImp ){
-        mHandleJsMessage.getActionMap().put(action,jsActionImp);
+
+    public JsBridge addJsAction(@Nullable String action, @Nullable Class<? extends JsAction> jsActionImp) {
+        if (mHandleJsMessage != null)
+            mHandleJsMessage.getActionMap().put(action, jsActionImp);
         return this;
     }
 
 
-    public JsBridge init(@Nullable Activity context,@Nullable WebView webView){
-        mHandleJsMessage =new HandleJsMessage(context,webView);
+    public JsBridge init(@Nullable Activity context, @Nullable WebView webView) {
+        mHandleJsMessage = new HandleJsMessage(context, webView);
         setting(context, webView);
         return this;
 
@@ -81,19 +86,23 @@ public class JsBridge {
 
     }
 
-
+    /**
+     * 暴露给js一个统一的接口
+     *
+     * @param webView
+     */
     @SuppressLint({"JavascriptInterface", "AddJavascriptInterface"})
     private void addJavascriptInterface(WebView webView) {
-        webView.addJavascriptInterface(new Object(){
+        webView.addJavascriptInterface(new Object() {
             @JavascriptInterface
-            public void sendMessage(String jsonStr){
+            public void sendMessage(String jsonStr) {
                 mHandleJsMessage.handle(jsonStr);
             }
-        },"native");
+        }, "native");
     }
 
 
-    public void destroy(){
+    public void destroy() {
         mHandleJsMessage.destroy();
     }
 

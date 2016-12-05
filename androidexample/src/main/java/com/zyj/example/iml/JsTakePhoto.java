@@ -7,7 +7,7 @@ import android.provider.MediaStore;
 
 import com.google.gson.Gson;
 import com.zyj.example.entity.JsMsgPhotoEntity;
-import com.zyj.jsbridge.JsAction;
+import com.zyj.hybridbridge.JsAction;
 
 /**
  * dec:拍照处理

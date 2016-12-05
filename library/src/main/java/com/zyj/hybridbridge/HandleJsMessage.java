@@ -1,4 +1,4 @@
-package com.zyj.jsbridge;
+package com.zyj.hybridbridge;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
@@ -43,6 +43,11 @@ public class HandleJsMessage {
         });
     }
 
+    /**
+     *  处理js传递过来的数据
+     * @param jsonStr js传递的数据
+     * @return 是否处理
+     */
     @TargetApi(Build.VERSION_CODES.KITKAT)
     boolean handle(String jsonStr) {
         JsMessage jsMessage = new Gson().fromJson(jsonStr, JsMessage.class);
@@ -54,7 +59,13 @@ public class HandleJsMessage {
         return false;
     }
 
-
+    /**
+     *  根据js传递过来的action将事件分发下去
+     * @param jsonStr js传递的数据
+     * @param action js意图
+     * @param map js意图集合
+     * @return 是否处理存在处理次意图的接口
+     */
     @TargetApi(Build.VERSION_CODES.KITKAT)
     private boolean HandleAction(String jsonStr, String action, Map<String, Class<? extends JsAction>> map) {
         for (String mapAction : map.keySet()) {

@@ -1,6 +1,6 @@
 package com.zyj.example.entity;
 
-import com.zyj.jsbridge.JsMessage;
+import com.zyj.hybridbridge.JsMessage;
 
 /**
  * dec:拍照

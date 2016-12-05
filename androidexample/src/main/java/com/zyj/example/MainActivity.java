@@ -15,9 +15,9 @@ import com.zyj.example.iml.JsCall;
 import com.zyj.example.iml.JsDeviceInfo;
 import com.zyj.example.iml.JsSelectPhoto;
 import com.zyj.example.iml.JsTakePhoto;
-import com.zyj.jsbridge.HandleResult;
-import com.zyj.jsbridge.JsBridge;
-import com.zyj.jsbridge.RxBus;
+import com.zyj.hybridbridge.HandleResult;
+import com.zyj.hybridbridge.JsBridge;
+import com.zyj.hybridbridge.RxBus;
 
 import static com.zyj.example.Utils.saveBitmapToFile;
 

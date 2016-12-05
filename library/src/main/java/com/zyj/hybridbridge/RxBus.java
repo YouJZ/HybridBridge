@@ -1,4 +1,4 @@
-package com.zyj.jsbridge;
+package com.zyj.hybridbridge;
 
 import rx.Observable;
 import rx.subjects.PublishSubject;

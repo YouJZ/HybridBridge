@@ -1,4 +1,4 @@
-package com.zyj.jsbridge;
+package com.zyj.hybridbridge;
 
 /**
  * dec:

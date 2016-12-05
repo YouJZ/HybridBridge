@@ -3,9 +3,9 @@ package com.zyj.example.iml;
 import android.app.Activity;
 
 import com.zyj.example.entity.DeviceInfoEntity;
-import com.zyj.jsbridge.HandleResult;
-import com.zyj.jsbridge.JsAction;
-import com.zyj.jsbridge.RxBus;
+import com.zyj.hybridbridge.HandleResult;
+import com.zyj.hybridbridge.JsAction;
+import com.zyj.hybridbridge.RxBus;
 
 /**
  * dec:设备信息接口
@@ -13,7 +13,7 @@ import com.zyj.jsbridge.RxBus;
  * createTime 16/5/14 11:08
  */
 public class JsDeviceInfo extends JsAction {
-    public static final String ACTION="deviceinfo";
+    public static final String ACTION = "deviceinfo";
 
     @Override
     protected void handleAction(Activity context, String jsonStr) {

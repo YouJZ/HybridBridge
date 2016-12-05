@@ -1,4 +1,7 @@
 apply plugin: 'com.android.library'
+apply plugin: 'com.novoda.bintray-release'
+
+
 
 android {
     compileSdkVersion 24
@@ -31,3 +34,23 @@ dependencies {
     compile 'com.google.code.gson:gson:2.8.0'
     compile 'io.reactivex:rxandroid:1.2.1'
 }
+
+
+
+
+
+publish {
+    userOrg = 'zyj'//bintray.com用户名
+    groupId = 'com.zyj'//jcenter上的路径
+    artifactId = 'hybridbridge'//项目名称
+    publishVersion = '0.1.0'//版本号
+    desc = 'A basic framework for Android hybrid development,  bridge between JavaScript and java.'//描述，不重要
+    website = 'https://github.com/YouJZ/HybridBridge'//
+}
+
+
+
+
+
+
+

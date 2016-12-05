@@ -7,7 +7,7 @@ import android.os.Build;
 import com.google.gson.Gson;
 import com.zyj.example.entity.JsMsgPhotoEntity;
 
-import com.zyj.jsbridge.JsAction;
+import com.zyj.hybridbridge.JsAction;
 
 /**
  * dec:选择照片处理
