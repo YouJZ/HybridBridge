@@ -1,6 +1,6 @@
 # HybridBridge
 A basic framework for Android hybrid development, bridge between JavaScript and java.
- ![demo](https://github.com/YouJZ/HybridBridge/demo.gif)
+ ![demo](https://github.com/YouJZ/HybridBridge/blob/master/demo.gif)
 ##use in android
 
 ###Adding to project
