@@ -1,9 +1,9 @@
 # HybridBridge
 A basic framework for Android hybrid development, bridge between JavaScript and java.
  ![demo](https://github.com/YouJZ/HybridBridge/blob/master/demo.gif)
-  ##use in android
+  ## use in android
 
-  ###Adding to project
+  ### Adding to project
 
     compile 'com.zyj:hybridbridge:0.1.0'
 ### step.1
@@ -23,7 +23,7 @@ A basic framework for Android hybrid development, bridge between JavaScript and 
     JsBridge.getInstance().addJsAction(JsDeviceInfo.ACTION, JsDeviceInfo.class);
 ### step.3
      JsBridge.getInstance().destroy();
-  ##use in js
+## use in js
 ### step.1
     window.nativeCallback = function(data) {...}
 ### step.2
